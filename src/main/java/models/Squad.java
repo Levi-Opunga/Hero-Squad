@@ -4,12 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Squad {
-    private final int id;
+    private int id;
     private static List<Squad> instances = new ArrayList<>();
     private static List<Hero> heroesInSquad = new ArrayList<>();
     private String name;
     private String motto;
     private Integer maxsize;
+
+
+
     private  String cause;
 
 
@@ -18,8 +21,9 @@ public class Squad {
         this.name = name;
         this.maxsize = maxsize;
         this.cause = cause;
+        this.motto = motto;
         instances.add(this);
-        this.id = createId();
+        this.id = instances.size();
     }
 
     public String getName() {
@@ -48,11 +52,23 @@ public class Squad {
     private int createId(){
        return instances.size()-1;
     }
-    private int getId(){
+    public int getId(){
         return id;
     }
+    public  void setId(int id){
+        this.id = id;
+    }
+    public String getMotto() {
+        return motto;
+    }
 
-    private List<Squad> getAllSquads(){
+    public void setMotto(String motto) {
+        this.motto = motto;
+    }
+   public static  Squad getSquadById(int idToUse){
+return instances.get(idToUse-1);
+   }
+    public static List<Squad> getAllSquads(){
         return instances;
     }
     private List<Hero> getAllHeroesInSquad(){

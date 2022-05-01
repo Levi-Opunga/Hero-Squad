@@ -51,6 +51,13 @@ class SquadTest {
         squad.setCause("new");
         assertEquals("new", squad.getCause());
     }
+    @Test
+    void TestGetId(){
+        Squad.getAllSquads().clear();;
+    Squad squad= setUpSquad();
+    assertEquals(1,squad.getId());
+    }
+
 
     private Squad setUpSquad() {
         return new Squad("first", "do code",  "corruption",5);

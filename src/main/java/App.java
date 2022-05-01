@@ -16,6 +16,8 @@ public class App {
         //getting homepage
         get("/",(request, response) ->{
             Map<String,Object> model = new HashMap<>();
+            List<Squad> squadList = Squad.getAllSquads();
+            model.put("squads",squadList);
             List<Hero> list = Hero.getAll();
             model.put("heroes",list);
             return modelAndView(model,"index.hbs");
@@ -35,11 +37,19 @@ public class App {
         post("/success-squad",(request, response) ->{
             Map<String,Object> model = new HashMap<>();
             String name = request.queryParams("squad-name");
-            String cause  =request.queryParams("cause");
-            int  maxsize = Integer.parseInt(request.queryParams("max-size"));
-            String motto = request.queryParams("motto");
+            String cause  = request.queryParams("squad-cause");
+            int  maxsize = Integer.parseInt(request.queryParams("maxsize"));
+            String motto = request.queryParams("squad-motto");
             Squad squad = new Squad(name,motto,cause,maxsize);
             return modelAndView(model,"success.hbs");
+        },new HandlebarsTemplateEngine());
+        //individual quad-detail page
+        get("/squad/:id",(request, response) -> {
+            Map<String,Object> model = new HashMap<>();
+            int idToUse= Integer.parseInt(request.params("id"));
+            Squad squad = Squad.getSquadById(idToUse);
+            model.put("squad",squad);
+            return modelAndView(model,"squad-detail.hbs");
         },new HandlebarsTemplateEngine());
 
  //getting heroes form
