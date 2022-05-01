@@ -1,0 +1,41 @@
+{{#partial "content"}}
+    <form>
+        <div class="text-center container pt-5">
+            <div class="form-row">
+                <div class="col">
+                    <label for="hero-name">Hero Name</label>
+                    <input class="form-control form-control-lg" class="form-group" name="hero-name" id="hero-name"
+                           type="text" placeholder="Enter the hero name">
+                </div>
+
+
+                <div class="col">
+                    <label for="age">Hero-Age</label>
+                    <input class="form-control form-control-lg" class="form-group" name="age" id="age" type="number"
+                           placeholder="Enter the hero age">
+                </div>
+
+            </div>
+
+            <div class="form-row mt-3   ">
+
+                <div class="col-md-10 offset-1">
+                    <label for="power">Power</label>
+                    <input class="form-control form-control-lg col-md 10" class="form-group" type="text" name="power"
+                           id="power" placeholder="Enter  the hero Special power">
+                </div>
+            </div>
+            <div class="form-row mt-3">
+                <div class="col-md-10 offset-1">
+                    <label for="weakness">Weakness</label>
+                    <input class="form-control form-control-lg " class="form-group" type="text" name="weakness"
+                           id="weakness" placeholder="Enter hero Weakness">
+                </div>
+            </div>
+            <div class=" pt-4">
+                <button type="submit" class="btn btn-primary ">Add Hero</button>
+            </div>
+        </div>
+    </form>
+{{/partial}}
+{{>layout.hbs}}
