@@ -6,48 +6,53 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class SquadTest {
     @Test
-    public void squadGetsCreated(){
-    Squad squad=  setUpSquad();
-    assertEquals(true,squad instanceof Squad);
+    public void  TestsquadGetsCreated() {
+        Squad squad = setUpSquad();
+        assertEquals(true, squad instanceof Squad);
 
     }
 
     @Test
-    void getName() {
-        Squad squad=  setUpSquad();
-        assertEquals("first",squad.getName());
+    void TestgetName() {
+        Squad squad = setUpSquad();
+        assertEquals("first", squad.getName());
     }
 
     @Test
-    void setName() {  Squad squad=  setUpSquad();
+    void  TestsetName() {
+        Squad squad = setUpSquad();
         squad.setName("new");
-        assertEquals("new",squad.getName());
+        assertEquals("new", squad.getName());
     }
 
     @Test
-    void getMaxsize() {  Squad squad=  setUpSquad();
-        assertEquals(5,squad.getMaxsize());
+    void  TestgetMaxsize() {
+        Squad squad = setUpSquad();
+        assertEquals(5, squad.getMaxsize());
     }
 
     @Test
-    void setMaxsize() {  Squad squad=  setUpSquad();
+    void  TestsetMaxsize() {
+        Squad squad = setUpSquad();
         squad.setMaxsize(11);
-        assertEquals(11,squad.getMaxsize());
+        assertEquals(11, squad.getMaxsize());
 
     }
 
     @Test
-    void getCause() {  Squad squad=  setUpSquad();
-        assertEquals("corruption",squad.getCause());
+    void  TestgetCause() {
+        Squad squad = setUpSquad();
+        assertEquals("corruption", squad.getCause());
     }
 
     @Test
-    void setCause() {  Squad squad=  setUpSquad();
+    void  TestsetCause() {
+        Squad squad = setUpSquad();
         squad.setCause("new");
-        assertEquals("new",squad.getCause());
+        assertEquals("new", squad.getCause());
     }
 
-    private Squad setUpSquad(){
-        return new Squad("first",5,"corruption");
+    private Squad setUpSquad() {
+        return new Squad("first", "do code",  "corruption",5);
     }
 }

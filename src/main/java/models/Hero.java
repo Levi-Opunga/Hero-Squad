@@ -1,6 +1,11 @@
 package models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Hero {
+    private static ArrayList<Hero> instances = new ArrayList<>();
+    private final int id;
     private String name;
     private Integer age;
     private String power;
@@ -11,6 +16,11 @@ public class Hero {
         this.age = age;
         this.power = power;
         this.weakness = weakness;
+        instances.add(this);
+        id = instances.size()-1;
+    }
+    public static List<Hero> getAll(){
+        return instances;
     }
 
     public String getName() {
@@ -46,5 +56,11 @@ public class Hero {
     }
 
 
+    public int getId(){
+        return id;
+    }
+    public  static  void clearAllPosts(){
+        instances.clear();
+    }
 
 }

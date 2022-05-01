@@ -1,0 +1,22 @@
+{{#partial "content"}}
+    <div class="text-center">
+    {{#if heroes}}
+            <h2 class="display-2">Available Heroes</h2></div>
+        {{#each heroes}}
+            <h2>Hero Name :{{name}}</h2>
+            <p>Hero's Age :{{age}}</p>
+            <p>Hero's Power:{{power}}</p>
+            <p>Hero's Weakness:{{weakness}}</p>
+        {{/each}} <a href="/hero-form">
+            <button class="btn btn-success">Add More Heroes</button>
+        </a>
+    {{else}}
+        <h3>Please Add Heroes</h3>
+        <a href="/hero-form">
+            <button class="btn btn-success">Add Hero</button>
+        </a>
+    {{/if}}
+
+
+{{/partial}}
+{{>layout.hbs}}
