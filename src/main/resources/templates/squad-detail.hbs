@@ -1,29 +1,22 @@
 {{#partial "content"}}
-    <div class="text-center col-md-10">
+    <div class="text-center offset-1 col-md-10" >
         {{#if squad}}
-            <h2 class="display-2">{{squad.name}}</h2>
-
+            <h2>{{squad.name}}</h2>
             <h3>Motto</h3>
             <p>{{squad.motto}}</p>
             <h3>Cause</h3>
             <p>{{squad.cause}}</p>
-
             <h4>Squad Capacity:{{squad.maxsize}}</h4>
-
-
         {{/if}}
-
         {{#if heroes}}
             <h4>Heroes in this Squad</h4>
             {{#each heroes}}
-                <h5>Hero Name :{{name}}</h5>
+                <h5>{{name}}</h5>
 
             {{/each}}
         {{else}}
             <h4>Category has no heroes yet</h4>
-
         {{/if}}
-
 
 
         <a href="/squad-form">
@@ -31,4 +24,5 @@
         </a>
     </div>
 {{/partial}}
+
 {{>layout.hbs}}

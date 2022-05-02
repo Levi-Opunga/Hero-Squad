@@ -1,5 +1,5 @@
 {{#partial "content"}}
-<div class="text-center col-md-10">
+<div class="text-center offset-1 col-md-10">
     {{#if squads}}
         <h2 class="display-3">Available Squads</h2>
         {{#each squads}}
@@ -11,7 +11,7 @@
 
             <h4>Squad Capacity :{{maxsize}}</h4>
         {{/each}} <a href="/squad-form">
-            <button class="btn btn-success">Add More Heroes</button>
+            <button class="btn btn-success">Add More Squads</button>
         </a>
     {{/if}}
 </div>

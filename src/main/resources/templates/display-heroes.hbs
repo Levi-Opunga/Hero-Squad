@@ -1,21 +1,21 @@
 {{#partial "content"}}
-    <div class="text-center col-md-10">
-    {{#if heroes}}
+    <div class="text-center offset-1 col-md-10">
+        {{#if heroes}}
             <h2 class="display-2">Available Heroes</h2>
-        {{#each heroes}}
-            <h2>Hero Name :{{name}}</h2>
-            <p>Hero's Age :{{age}}</p>
-            <p>Hero's Power:{{power}}</p>
-            <p>Hero's Weakness:{{weakness}}</p>
-            {{#if allocatedSquad}}
-                <h3>Hero's Squad: {{squad}}</h3>
-            {{/if}}
-        {{/each}}
-        <a href="/squad-form">
-            <button class="btn btn-primary">Add More Heroes</button>
-        </a>
-    {{/if}}
- <div>
+            {{#each heroes}}
+                <h2>Hero Name :{{name}}</h2>
+                <p>Hero's Age :{{age}}</p>
+                <p>Hero's Power:{{power}}</p>
+                <p>Hero's Weakness:{{weakness}}</p>
+                {{#if allocatedSquad}}
+                    <h3>Hero's Squad: {{squad}}</h3>
+                {{/if}}
+            {{/each}}
+            <a href="/squad-form">
+                <button class="btn btn-primary">Add More Heroes</button>
+            </a>
+        {{/if}}
+        <div>
 
 {{/partial}}
 {{>layout.hbs}}

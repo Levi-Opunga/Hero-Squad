@@ -23,9 +23,9 @@ public class App {
         Hero sample1 = new Hero("Black Bolt",39,"Channeling all available energy into one devastating punch called his Master Blow","Low Self-Control)");
         Hero sample2 = new Hero("Ironman",45,"Has a super suit and is a Bilionaire","Vulnerable Without Suit");
         Hero sample3 = new Hero("Captain America",38,"Super Soldier with Super Human abilities","Hydra Agents");
+        Squad sampleSquad = new Squad("Marvel Heroes","One for all","Maintain galactic peace",6);
         //getting homepage
         get("/", (request, response) -> {
-
             Map<String, Object> model = new HashMap<>();
             List<Squad> squadList = Squad.getAllSquads();
             model.put("squads", squadList);
@@ -58,14 +58,16 @@ public class App {
             Squad squad = new Squad(name, motto, cause, maxsize);
             return modelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
-        //individual quad-detail page
+        //individual squad-detail page
         get("/squad/:id", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             int idToUse = Integer.parseInt(request.params("id"));
             Squad squad = Squad.getSquadById(idToUse);
-            String squadname = squad.getName();
+            String squadName = squad.getName();
             model.put("squad", squad);
-            Collection<Hero> heroesInParticularSquad = squadAllocations.get(squadname);
+            boolean inside = true;
+            model.put("position",inside);
+            Collection<Hero> heroesInParticularSquad = squadAllocations.get(squadName);
             List<Hero> heroes = new ArrayList<>(heroesInParticularSquad);
             model.put("heroes", heroes);
             return modelAndView(model, "squad-detail.hbs");
