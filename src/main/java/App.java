@@ -102,7 +102,13 @@ public class App {
 
                 model.put("squad", squad);
                 return modelAndView(model, "squad-full.hbs");
-            } else {
+            } else if(heroes.contains(Hero.getHeroById(selectedHeroId))){
+                model.put("hero",Hero.getHeroById(selectedHeroId));
+                return modelAndView(model,"already-allocated.hbs");
+            }
+
+
+            else {
                 Hero.getHeroById(selectedHeroId).setSquad(squadAllocated);
                 squadAllocations.put(squadAllocated, Hero.getHeroById(selectedHeroId));
                 return modelAndView(squadAllocations, "success.hbs");
