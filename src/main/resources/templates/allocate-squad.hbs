@@ -1,28 +1,32 @@
 {{#partial "content"}}
-    <form action="/allocate-squad" class="text-center col-md-10" method="post">
+    <form action="/allocate-squad" class="text-center pt-5 mt-5 col-md-10" method="post">
         {{#if squads}}
             <div class="form-group pt-5 ">
                 <label for="exampleFormControlSelect1">Squad Selection</label>
-                <select class="form-control form-control-lg" name="squad-selection" id="exampleFormControlSelect1">
+                <select class="form-control form-control-lg" required name="squad-selection" id="exampleFormControlSelect1">
 
                     {{#each squads}}
-                        <option class="text-uppercase" value="{{id}}">{{id}} {{name}}</option>
+                        {{#unless squadFull}}
+                        <option class="text-uppercase"  value="{{id}}">{{id}} {{name}}</option>
+                        {{/unless}}
                     {{/each}}
                 </select>
             </div>
 
         {{else}}
-          <a href="/squad-form"> <h4 class="pb-4 pt-3">Please add a squad first</h4></a>
+          <a href="/squad-form"> <h4 class="pb-4 mt-5 pt-5">Please add a squad first</h4></a>
         {{/if}}
 
         {{#if heroes}}
             <div class="form-group">
 
-                <label for="exampleFormControlSelect1">Hero select</label>
-                <select class="form-control  form-control-lg" name="hero-selection" id="exampleFormControlSelect1">
+                <label for="exampleFormControlSelect1">Available Unallocated Heroes</label>
+                <select class="form-control  form-control-lg"  required name="hero-selection" id="exampleFormControlSelect1">
 
                     {{#each heroes}}
+                        {{#unless allocatedSquad}}
                         <option value="{{id}}">{{id}} {{name}}</option>
+                        {{/unless}}
                     {{/each}}
 
                 </select>

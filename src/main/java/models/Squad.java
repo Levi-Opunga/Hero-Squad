@@ -13,6 +13,15 @@ public class Squad {
     private Integer maxsize;
 
 
+boolean squadFull = false;
+
+    public boolean isSquadFull() {
+        return squadFull;
+    }
+
+    public void setSquadFull(boolean squadFull) {
+        this.squadFull = squadFull;
+    }
 
     private  String cause;
 

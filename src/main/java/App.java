@@ -17,9 +17,15 @@ public class App {
 
     public static void main(String[] args) {
         staticFileLocation("/public");
+        //class wide objects
         Multimap<String, Hero> squadAllocations = ArrayListMultimap.create();
+        //sample heroes
+        Hero sample1 = new Hero("Black Bolt",39,"Channeling all available energy into one devastating punch called his Master Blow","Low Self-Control)");
+        Hero sample2 = new Hero("Ironman",45,"Has a super suit and is a Bilionaire","Vulnerable Without Suit");
+        Hero sample3 = new Hero("Captain America",38,"Super Soldier with Super Human abilities","Hydra Agents");
         //getting homepage
         get("/", (request, response) -> {
+
             Map<String, Object> model = new HashMap<>();
             List<Squad> squadList = Squad.getAllSquads();
             model.put("squads", squadList);
@@ -31,11 +37,15 @@ public class App {
         //getting heroes form
         get("/hero-form", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
+            List<Squad> squadList = Squad.getAllSquads();
+            model.put("squads", squadList);
             return modelAndView(model, "hero-form.hbs");
         }, new HandlebarsTemplateEngine());
         //getting Squad form
         get("/squad-form", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
+            List<Squad> squadList = Squad.getAllSquads();
+            model.put("squads", squadList);
             return modelAndView(model, "squad-form.hbs");
         }, new HandlebarsTemplateEngine());
 //process squad form
@@ -63,7 +73,10 @@ public class App {
 
         //getting heroes form
         get("/hero-form", (request, response) -> {
+
             Map<String, Object> model = new HashMap<>();
+            List<Squad> squadList = Squad.getAllSquads();
+            model.put("squads", squadList);
             return modelAndView(model, "hero-form.hbs");
         }, new HandlebarsTemplateEngine());
         //processing hero
@@ -83,6 +96,13 @@ public class App {
             model.put("squads", squadList);
             List<Hero> list = Hero.getAll();
             model.put("heroes", list);
+            for(Squad squad: squadList){
+                String squadname = squad.getName();
+                Collection<Hero> heroesInParticularSquad = squadAllocations.get(squadname);
+                List<Hero> heroes = new ArrayList<>(heroesInParticularSquad);
+                if (heroes.size() == squad.getMaxsize()) {
+                    squad.setSquadFull(true);}
+            }
             return new ModelAndView(model, "allocate-squad.hbs");
         }, new HandlebarsTemplateEngine());
 
@@ -99,7 +119,7 @@ public class App {
             List<Hero> heroes = new ArrayList<>(heroesInParticularSquad);
 
             if (heroes.size() == squad.getMaxsize()) {
-
+               squad.setSquadFull(true);
                 model.put("squad", squad);
                 return modelAndView(model, "squad-full.hbs");
             } else if(heroes.contains(Hero.getHeroById(selectedHeroId))){
@@ -117,6 +137,12 @@ public class App {
         }, new HandlebarsTemplateEngine());
 
 
+
+
+
+
+
+        //displaying all squads
         get("/display-squads", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             List<Squad> squadList = Squad.getAllSquads();
@@ -126,6 +152,7 @@ public class App {
             return modelAndView(model, "display-squads.hbs");
         }, new HandlebarsTemplateEngine());
 
+// displaying all heroes
         get("/display-heroes", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             List<Squad> squadList = Squad.getAllSquads();
