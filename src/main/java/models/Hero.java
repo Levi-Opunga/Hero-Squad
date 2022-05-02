@@ -6,10 +6,31 @@ import java.util.List;
 public class Hero {
     private static ArrayList<Hero> instances = new ArrayList<>();
     private final int id;
+
+    public boolean isAllocatedSquad() {
+        return allocatedSquad;
+    }
+
+    public void setAllocatedSquad(boolean allocatedSquad) {
+        this.allocatedSquad = allocatedSquad;
+    }
+
     private String name;
     private Integer age;
     private String power;
     private String weakness;
+
+    boolean allocatedSquad =false;
+    private String squad;
+
+    public String getSquad() {
+        return squad;
+    }
+
+    public void setSquad(String squad) {
+        this.squad = squad;
+        allocatedSquad = true;
+    }
 
     public Hero(String name, Integer age, String power, String weakness) {
         this.name = name;
@@ -61,6 +82,10 @@ public class Hero {
     }
     public  static  void clearAllPosts(){
         instances.clear();
+    }
+
+    public static  Hero getHeroById(int idToUse){
+        return instances.get(idToUse);
     }
 
 }

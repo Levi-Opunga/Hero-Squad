@@ -2,17 +2,22 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.google.common.collect.ArrayListMultimap;
 import models.Hero;
 import models.Squad;
+
+import com.google.common.collect.Multimap;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 import static spark.Spark.*;
+import java.lang.Object;
 
 
 public class App {
 
     public static void main(String[] args) {
         staticFileLocation("/public");
+        Multimap<String,Object> squadAllocations = ArrayListMultimap.create();
         //getting homepage
         get("/",(request, response) ->{
             Map<String,Object> model = new HashMap<>();
@@ -66,6 +71,42 @@ public class App {
             String power = request.queryParams("power");
             Hero hero = new Hero(name,age,power,weakness);
             return modelAndView(model,"success.hbs");
+        },new HandlebarsTemplateEngine());
+//allocate hero a squad form
+        get("/squad-allocate",(request, response) -> {
+            Map<String,Object> model = new HashMap<>();
+            List<Squad> squadList = Squad.getAllSquads();
+            model.put("squads",squadList);
+            List<Hero> list = Hero.getAll();
+            model.put("heroes",list);
+            return new ModelAndView(model,"allocate-squad.hbs");
+        },new HandlebarsTemplateEngine());
+
+        post("/allocate-squad",(request, response) -> {
+            String squadAllocated = request.queryParams("squad-selection");
+            int selectedHeroId = Integer.parseInt(request.queryParams("hero-selection"));
+            Hero.getHeroById(selectedHeroId).setSquad(squadAllocated);
+            squadAllocations.put(squadAllocated,Hero.getHeroById(selectedHeroId));
+            return modelAndView(squadAllocations, "success.hbs");
+        },new HandlebarsTemplateEngine());
+
+
+        get("/display-squads",(request, response) ->{
+            Map<String,Object> model = new HashMap<>();
+            List<Squad> squadList = Squad.getAllSquads();
+            model.put("squads",squadList);
+            List<Hero> list = Hero.getAll();
+            model.put("heroes",list);
+            return modelAndView(model,"display-squads.hbs");
+        },new HandlebarsTemplateEngine());
+
+        get("/display-heroes",(request, response) ->{
+            Map<String,Object> model = new HashMap<>();
+            List<Squad> squadList = Squad.getAllSquads();
+            model.put("squads",squadList);
+            List<Hero> list = Hero.getAll();
+            model.put("heroes",list);
+            return modelAndView(model,"display-heroes.hbs");
         },new HandlebarsTemplateEngine());
 
 

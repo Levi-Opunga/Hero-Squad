@@ -2,11 +2,12 @@ package models;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class Squad {
     private int id;
     private static List<Squad> instances = new ArrayList<>();
-    private static List<Hero> heroesInSquad = new ArrayList<>();
+
     private String name;
     private String motto;
     private Integer maxsize;
@@ -24,6 +25,7 @@ public class Squad {
         this.motto = motto;
         instances.add(this);
         this.id = instances.size();
+
     }
 
     public String getName() {
@@ -71,7 +73,6 @@ return instances.get(idToUse-1);
     public static List<Squad> getAllSquads(){
         return instances;
     }
-    private List<Hero> getAllHeroesInSquad(){
-        return heroesInSquad;
-    }
+
+
 }

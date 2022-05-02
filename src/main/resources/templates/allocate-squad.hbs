@@ -1,0 +1,40 @@
+{{#partial "content"}}
+    <form action="/allocate-squad" class="text-center" method="post">
+        {{#if squads}}
+            <div class="form-group pt-5 ">
+                <label for="exampleFormControlSelect1">Squad Selection</label>
+                <select class="form-control form-control-lg" name="squad-selection" id="exampleFormControlSelect1">
+
+                    {{#each squads}}
+                        <option class="text-uppercase" value="{{name}}">{{id}} {{name}}</option>
+                    {{/each}}
+                </select>
+            </div>
+
+        {{else}}
+          <a href="/squad-form"> <h4 class="pb-4 pt-3">Please add a squad first</h4></a>
+        {{/if}}
+
+        {{#if heroes}}
+            <div class="form-group">
+
+                <label for="exampleFormControlSelect1">Hero select</label>
+                <select class="form-control  form-control-lg" name="hero-selection" id="exampleFormControlSelect1">
+
+                    {{#each heroes}}
+                        <option value="{{id}}">{{id}} {{name}}</option>
+                    {{/each}}
+
+                </select>
+
+            </div>
+            <div class="pt-4">
+                <button type="submit" class="btn btn-success">Add Squad</button>
+            </div>
+        {{else}}
+           <a href="hero-form"> <h4 class="pt-4">Please add a hero first</h4></a>
+        {{/if}}
+
+    </form>
+{{/partial}}
+{{>layout.hbs}}
