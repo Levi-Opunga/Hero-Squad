@@ -1,12 +1,12 @@
 {{#partial "content"}}
-    <form action="/allocate-squad" class="text-center" method="post">
+    <form action="/allocate-squad" class="text-center col-md-10" method="post">
         {{#if squads}}
             <div class="form-group pt-5 ">
                 <label for="exampleFormControlSelect1">Squad Selection</label>
                 <select class="form-control form-control-lg" name="squad-selection" id="exampleFormControlSelect1">
 
                     {{#each squads}}
-                        <option class="text-uppercase" value="{{name}}">{{id}} {{name}}</option>
+                        <option class="text-uppercase" value="{{id}}">{{id}} {{name}}</option>
                     {{/each}}
                 </select>
             </div>
@@ -29,7 +29,7 @@
 
             </div>
             <div class="pt-4">
-                <button type="submit" class="btn btn-success">Add Squad</button>
+                <button type="submit" class="btn btn-success">Add Hero to Squad</button>
             </div>
         {{else}}
            <a href="hero-form"> <h4 class="pt-4">Please add a hero first</h4></a>

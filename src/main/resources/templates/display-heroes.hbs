@@ -1,9 +1,9 @@
 {{#partial "content"}}
-    <div class="text-center">
+    <div class="text-center col-md-10">
     {{#if squads}}
-            <h2 class="display-2">Available Heroes</h2></div>
+            <h2 class="display-2">Available Heroes</h2><
         {{#each squads}}
-            <h2>Squad Name :{{name}}</h2>
+            <h2>{{name}}</h2>
             <h3>Motto</h3>
             <p>{{motto}}</p>
             <h3>Cause</h3>
@@ -14,7 +14,7 @@
             <button class="btn btn-success">Add More Heroes</button>
         </a>
     {{/if}}
-
+    /div>
 
 {{/partial}}partial}}
 {{>layout.hbs}}
