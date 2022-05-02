@@ -1,48 +1,48 @@
 {{#partial "content"}}
 
     <div class="text-center offset-1 col-md-10">
+ <h1>Welcome To The Hero Registry Site</h1>
+        <h5>Where</h5>
+        <h4>You can register all your heroes and add them to squads where they can collaborate on crime fighting</h4>
+        <br>
         {{#if heroes}}
 
-            <h2 class="">Available Heroes</h2>
+            <h2 class="">Some Available Heroes</h2>
             {{#each heroes}}
+                <img src="{{icon}}" alt="hero icon" class="hero-icon rounded-circle">
+
                 <h2>Hero Name :{{name}}</h2>
                 <p>Hero's Age :{{age}}</p>
                 <p>Hero's Power:{{power}}</p>
                 <p>Hero's Weakness:{{weakness}}</p>
                 {{#if allocatedSquad}}
                     <h3>Hero's Squad: {{squad}}</h3>
+
                 {{/if}}
             {{/each}}
-            <a href="/hero-form">
-                <div class="text-center  ">
-                    <blockquote class="style3 ">
-                        <h3>Add More Heroes</h3>
 
+            <br>
+            <a href="/display-heroes">
+                <div class="text-center">
+                    <blockquote class="style3 ">
+                        <h3>View All Heroes</h3>
                     </blockquote>
+
                 </div>
             </a>
-            <br>
-        <a href="/display-heroes">
-        <div class="text-center">
-            <blockquote class="style3 ">
-                <h3>View All Heroes</h3>
-
-            </blockquote>
-
-        </div>
-        </a>
         {{else}}
-            <a href="/hero-form" class="text-center">
+        <h1>Please add a hero using the add hero button</h1>
+        {{/if}}
+        <br>
+        <br>
+        <a href="/hero-form">
+            <div class="text-center  ">
                 <blockquote class="style2">
-                    <h3>Add Heroes</h3>
+                    <h3>+Add Hero</h3>
 
                 </blockquote>
-
-
-            </a>
-
-        {{/if}}
-
+            </div>
+        </a>
     </div>
 
 {{/partial}}

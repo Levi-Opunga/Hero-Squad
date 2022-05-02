@@ -14,13 +14,41 @@ public class Hero {
     public void setAllocatedSquad(boolean allocatedSquad) {
         this.allocatedSquad = allocatedSquad;
     }
+String icon;
 
+    public String getIcon() {
+        return icon;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
+    }
+
+    public static String[] icons = {"superhero (12).png"
+            , "superhero (10).png"
+            , "superhero (9).png"
+            , "superhero (8).png"
+            , "superhero (7).png"
+            , "superhero (11).png"
+            , "superhero (6).png"
+            , "superhero (5).png"
+            , "superhero (4).png"
+            , "superhero (3).png"
+            , "superhero (2).png"
+            , "superhero (1).png"
+            , "bat (1).png"
+            , "batman (1).png"
+            , "spiderman.png"
+            , "batman.png"
+            , "superman.png"
+            , "superhero.png",
+            "bat.png"};
     private String name;
     private Integer age;
     private String power;
     private String weakness;
 
-    boolean allocatedSquad =false;
+    boolean allocatedSquad = false;
     private String squad;
 
     public String getSquad() {
@@ -32,15 +60,17 @@ public class Hero {
         allocatedSquad = true;
     }
 
-    public Hero(String name, Integer age, String power, String weakness) {
+    public Hero(String name, Integer age, String power, String weakness,String icon) {
         this.name = name;
         this.age = age;
         this.power = power;
         this.weakness = weakness;
         instances.add(this);
-        id = instances.size()-1;
+        this.icon = icon;
+        id = instances.size() - 1;
     }
-    public static List<Hero> getAll(){
+
+    public static List<Hero> getAll() {
         return instances;
     }
 
@@ -77,15 +107,23 @@ public class Hero {
     }
 
 
-    public int getId(){
+    public int getId() {
         return id;
     }
-    public  static  void clearAllPosts(){
+
+    public static void clearAllHeroes() {
         instances.clear();
     }
 
-    public static  Hero getHeroById(int idToUse){
+    public static Hero getHeroById(int idToUse) {
         return instances.get(idToUse);
     }
+
+    public void deleteParicularSquad(int id) {
+        instances.remove(id);
+    }
+
+
+
 
 }

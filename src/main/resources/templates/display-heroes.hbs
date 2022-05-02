@@ -3,6 +3,8 @@
         {{#if heroes}}
             <h2 class="display-2">Available Heroes</h2>
             {{#each heroes}}
+                <img src="{{icon}}" alt="hero icon" class="hero-icon">
+
                 <h2>Hero Name :{{name}}</h2>
                 <p>Hero's Age :{{age}}</p>
                 <p>Hero's Power:{{power}}</p>

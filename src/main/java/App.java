@@ -8,6 +8,7 @@ import com.google.common.collect.Multimap;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
+import static models.Squad.squadAllocations;
 import static spark.Spark.*;
 
 import java.lang.Object;
@@ -18,27 +19,45 @@ public class App {
     public static void main(String[] args) {
         staticFileLocation("/public");
         //class wide objects
-        Multimap<String, Hero> squadAllocations = ArrayListMultimap.create();
-        //sample heroes
-        Hero sample1 = new Hero("Black Bolt",39,"Channeling all available energy into one devastating punch called his Master Blow","Low Self-Control)");
-        Hero sample2 = new Hero("Ironman",45,"Has a super suit and is a Bilionaire","Vulnerable Without Suit");
-        Hero sample3 = new Hero("Captain America",38,"Super Soldier with Super Human abilities","Hydra Agents");
+        Hero sample1 = new Hero("Black Bolt",39,"Channeling all available energy into one devastating punch called his Master Blow","Low Self-Control)","/images/superhero (7).png");
+        Hero sample2 = new Hero("Ironman",45,"Has a super suit and is a Bilionaire","Vulnerable Without Suit","/images/batman.png");
+        Hero sample3 = new Hero("Captain America",38,"Super Soldier with Super Human abilities","Hydra Agents","/images/superhero.png");
+        List<Hero> samplesToDisplay = new ArrayList<>();
+        samplesToDisplay.add(sample1);
+        samplesToDisplay.add(sample2);
+        samplesToDisplay.add(sample3);
         Squad sampleSquad = new Squad("Marvel Heroes","One for all","Maintain galactic peace",6);
         //getting homepage
         get("/", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             List<Squad> squadList = Squad.getAllSquads();
             model.put("squads", squadList);
-            List<Hero> list = Hero.getAll();
-            model.put("heroes", list);
+            //sample heroes
+
+            model.put("heroes", samplesToDisplay);
             return modelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
+
+        //deleting squads
+     get("squad/delete",(request, response) -> {
+         Map<String, Object> model = new HashMap<>();
+         boolean inside = true;
+         model.put("position",inside);
+         Squad.deleteAllSquads();
+         return modelAndView(model,"display-squads.hbs");
+     },new HandlebarsTemplateEngine());
+
+
+
+
 
         //getting heroes form
         get("/hero-form", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             List<Squad> squadList = Squad.getAllSquads();
             model.put("squads", squadList);
+            String[] icons = Hero.icons;
+            model.put("icons",icons);
             return modelAndView(model, "hero-form.hbs");
         }, new HandlebarsTemplateEngine());
         //getting Squad form
@@ -46,6 +65,7 @@ public class App {
             Map<String, Object> model = new HashMap<>();
             List<Squad> squadList = Squad.getAllSquads();
             model.put("squads", squadList);
+
             return modelAndView(model, "squad-form.hbs");
         }, new HandlebarsTemplateEngine());
 //process squad form
@@ -66,6 +86,8 @@ public class App {
             String squadName = squad.getName();
             model.put("squad", squad);
             boolean inside = true;
+            List<Squad> squadList = Squad.getAllSquads();
+            model.put("squads", squadList);
             model.put("position",inside);
             Collection<Hero> heroesInParticularSquad = squadAllocations.get(squadName);
             List<Hero> heroes = new ArrayList<>(heroesInParticularSquad);
@@ -81,14 +103,16 @@ public class App {
             model.put("squads", squadList);
             return modelAndView(model, "hero-form.hbs");
         }, new HandlebarsTemplateEngine());
-        //processing hero
+        //processing hero form
         post("/success", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             String name = request.queryParams("hero-name");
             String weakness = request.queryParams("weakness");
             int age = Integer.parseInt(request.queryParams("age"));
             String power = request.queryParams("power");
-            Hero hero = new Hero(name, age, power, weakness);
+            String iconChoice = request.queryParams("icon-input");
+
+            Hero hero = new Hero(name, age, power, weakness,iconChoice);
             return modelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
 //allocate hero a squad form
@@ -107,7 +131,7 @@ public class App {
             }
             return new ModelAndView(model, "allocate-squad.hbs");
         }, new HandlebarsTemplateEngine());
-
+//process squad allocation
         post("/allocate-squad", (request, response) -> {
             int idToUse = Integer.parseInt(request.queryParams("squad-selection"));
             String squadAllocated = Squad.getSquadById(idToUse).getName();

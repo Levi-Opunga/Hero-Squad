@@ -38,7 +38,7 @@ class HeroTest {
 
     @Test
     void setAge() {
-        Hero.clearAllPosts();
+        Hero.clearAllHeroes();
         Hero hero = setUpHero();
         hero.setAge(40);
         assertEquals(40, hero.getAge());
@@ -73,15 +73,15 @@ class HeroTest {
     @Test
     void createIdTest() {
         Hero hero = setUpHero();
-        Hero two = new Hero("Steve", 45, "turbo", "sleeping");
-        Hero three = new Hero("Steve", 45, "turbo", "sleeping");
-        Hero four = new Hero("Steve", 45, "turbo", "sleeping");
+        Hero two = new Hero("Steve", 45, "turbo", "sleeping","/images/batman.png");
+        Hero three = new Hero("Steve", 45, "turbo", "sleeping","/images/batman.png");
+        Hero four = new Hero("Steve", 45, "turbo", "sleeping","/images/batman.png");
         assertEquals(3, four.getId());
 
     }
 
     private Hero setUpHero() {
-        Hero.clearAllPosts();
-        return new Hero("levi", 20, "super speed", "slippery floor");
+        Hero.clearAllHeroes();
+        return new Hero("levi", 20, "super speed", "slippery floor","/images/batman.png");
     }
 }

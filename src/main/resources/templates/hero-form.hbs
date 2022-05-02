@@ -1,40 +1,56 @@
 {{#partial "content"}}
-    <form action="/success" class="offset-1 col-md-10" method="post">
-        <div class="text-center container pt-5">
-            <div class="form-row">
-                <div class="col">
-                    <label for="hero-name">Hero Name</label>
-                    <input class="form-control form-control-lg" required class="form-group" name="hero-name" id="hero-name"
-                           type="text" placeholder="Enter the hero name">
-                </div>
-
-
-                <div class="col">
-                    <label for="age">Hero-Age</label>
-                    <input class="form-control form-control-lg" required  class="form-group" name="age" id="age" type="number"
-                           placeholder="Enter the hero age">
-                </div>
-
+    <form action="/success" class="offset-1 container-fluid col-md-10" method="post">
+    <div class="text-center  pt-5">
+        <div class="form-row">
+            <div class="col">
+                <label for="hero-name">Hero Name</label>
+                <input class="form-control form-control-lg" required class="form-group" name="hero-name"
+                       id="hero-name"
+                       type="text" placeholder="Enter the hero name">
             </div>
 
-            <div class="form-row mt-3   ">
 
-                <div class="col-md-10 offset-1">
-                    <label for="power">Power</label>
-                    <input class="form-control form-control-lg col-md 10" required  class="form-group" type="text" name="power"
-                           id="power" placeholder="Enter  the hero Special power">
-                </div>
+            <div class="col">
+                <label for="age">Hero-Age</label>
+                <input class="form-control form-control-lg" required class="form-group" name="age" id="age"
+                       type="number"
+                       placeholder="Enter the hero age">
             </div>
-            <div class="form-row mt-3">
-                <div class="col-md-10 offset-1">
-                    <label for="weakness">Weakness</label>
-                    <input class="form-control form-control-lg " required  class="form-group" type="text" name="weakness"
-                           id="weakness" placeholder="Enter hero Weakness">
-                </div>
+
+        </div>
+
+        <div class="form-row mt-3   ">
+
+            <div class="col-md-10 offset-1">
+                <label for="power">Power</label>
+                <input class="form-control form-control-lg col-md 10" required class="form-group" type="text"
+                       name="power"
+                       id="power" placeholder="Enter  the hero Special power">
             </div>
-            <div class=" pt-4">
-                <button type="submit" class="btn btn-primary ">Add Hero</button>
+        </div>
+        <div class="form-row mt-3">
+            <div class="col-md-10 offset-1">
+                <label for="weakness">Weakness</label>
+                <input class="form-control form-control-lg " required class="form-group" type="text" name="weakness"
+                       id="weakness" placeholder="Enter hero Weakness">
             </div>
+        </div>
+
+        <h2 class="d-clock">Pick an icon</h2>
+        <div  class="form-row row text-center mt-3">
+        {{#each icons}}
+            <div class="form-check">
+                <input class="form-check-input" type="radio" required name="icon-input" id="exampleRadios1" value="/images/{{this}}" checked>
+                <label class="form-check-label" for="exampleRadios1">
+                    <img class="rounded-circle icons"  alt="100x100"
+                         src="/images/{{this}}"
+                         data-holder-rendered="true">
+                </label>
+            </div>
+        {{/each}}
+    </div>
+        <div class=" pt-4">
+            <button type="submit" class="btn btn-primary ">Add Hero</button>
         </div>
     </form>
 {{/partial}}

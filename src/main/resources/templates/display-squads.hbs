@@ -1,20 +1,42 @@
 {{#partial "content"}}
-<div class="text-center offset-1 col-md-10">
-    {{#if squads}}
-        <h2 class="display-3">Available Squads</h2>
-        {{#each squads}}
-            <h2>Squad Name :{{name}}</h2>
-            <h3>Motto</h3>
-            <p>{{motto}}</p>
-            <h3>Cause</h3>
-            <p>Squad :{{Cause}}</p>
+    <div class="text-center pt-5 offset-1 col-md-10">
 
-            <h4>Squad Capacity :{{maxsize}}</h4>
-        {{/each}} <a href="/squad-form">
-            <button class="btn btn-success">Add More Squads</button>
-        </a>
-    {{/if}}
-</div>
+        <a href="/squad-form mt-5">
+            <a href="/hero-form">
+                <div class="text-center h2">
+                    <blockquote class="style3 ">Add More Squads</blockquote>
+                </div>
+            </a>
+            {{#if squads}}
+                <h2 class="display-3">Available Squads</h2>
+                {{#each squads}}
+                    <h2>Squad Name :{{name}}</h2>
+                    <h3>Motto</h3>
+                    <p>{{motto}}</p>
+                    <h3>Cause</h3>
+                    <p>Squad :{{Cause}}</p>
 
-{{/partial}}partial}}
-    {{>layout.hbs}}
+                    <h4>Squad Capacity :{{maxsize}}</h4>
+                {{/each}}
+                <a href="/squad/delete">
+
+                    <div class="text-center h2">
+                        <blockquote class="style3 ">
+                            Add Delete All Squads
+                        </blockquote>
+                    </div>
+                </a>
+            {{else}}
+                <h1 class="pt-5 mt-t pb-5 mb-5">
+                    THERE CURRENTLY NO SQUADS PLEASE ADD
+                </h1>
+
+
+
+            {{/if}}
+
+
+    </div>
+
+{{/partial}}
+{{>layout.hbs}}

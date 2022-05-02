@@ -1,5 +1,8 @@
 package models;
 
+import com.google.common.collect.ArrayListMultimap;
+import com.google.common.collect.Multimap;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -13,7 +16,7 @@ public class Squad {
     private Integer maxsize;
 
 
-boolean squadFull = false;
+    boolean squadFull = false;
 
     public boolean isSquadFull() {
         return squadFull;
@@ -23,11 +26,10 @@ boolean squadFull = false;
         this.squadFull = squadFull;
     }
 
-    private  String cause;
+    private String cause;
+    public static Multimap<String, Hero> squadAllocations = ArrayListMultimap.create();
 
-
-
-    public Squad(String name,String motto, String cause,Integer maxsize) {
+    public Squad(String name, String motto, String cause, Integer maxsize) {
         this.name = name;
         this.maxsize = maxsize;
         this.cause = cause;
@@ -60,15 +62,19 @@ boolean squadFull = false;
     public void setCause(String cause) {
         this.cause = cause;
     }
-    private int createId(){
-       return instances.size()-1;
+
+    private int createId() {
+        return instances.size() - 1;
     }
-    public int getId(){
+
+    public int getId() {
         return id;
     }
-    public  void setId(int id){
+
+    public void setId(int id) {
         this.id = id;
     }
+
     public String getMotto() {
         return motto;
     }
@@ -76,12 +82,20 @@ boolean squadFull = false;
     public void setMotto(String motto) {
         this.motto = motto;
     }
-   public static  Squad getSquadById(int idToUse){
-return instances.get(idToUse-1);
-   }
-    public static List<Squad> getAllSquads(){
+
+    public static Squad getSquadById(int idToUse) {
+        return instances.get(idToUse - 1);
+    }
+
+    public static List<Squad> getAllSquads() {
         return instances;
     }
 
+    public static void deleteAllSquads() {
+        instances.clear();
+    }
+    public void deleteParicularSquad(int id){
+        instances.remove(id-1);
+    }
 
 }
