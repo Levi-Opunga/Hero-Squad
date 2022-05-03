@@ -25,6 +25,8 @@ public class Hero {
     boolean allocatedSquad = false;
     private String squad;
 
+    public static int heroSubtractCounter =0;
+
     public String getSquad() {
         return squad;
     }
@@ -94,8 +96,9 @@ public class Hero {
         return instances.get(idToUse);
     }
 
-    public void deleteParicularHero(int id) {
+    public static void deleteParicularHero(int id) {
         instances.remove(id);
+        heroSubtractCounter++;
     }
     public boolean isAllocatedSquad() {
         return allocatedSquad;

@@ -56,31 +56,24 @@ public class App {
         },new HandlebarsTemplateEngine());
 
 
-//delete hero
+//delete one hero
+
         get("hero-delete/:id",(request, response) -> {
             Map<String,Object> model = new HashMap<>();
-          int idToUse = Integer.parseInt(request.params(":id"));
-           Hero.getHeroById(idToUse).deleteParicularHero(idToUse);
-            List<Squad> squadList = Squad.getAllSquads();
-            model.put("squads", squadList);
-            boolean inside = true;
-            model.put("position",inside);
-            List<Hero> list = Hero.getAll();
-            model.put("heroes", list);
-            return new ModelAndView(model,"display-heroes.hbs");
+            int idToUse = Integer.parseInt(request.params(":id"));
+            Hero.getAll().removeIf(hero -> hero.getId()==idToUse);
+
+            response.redirect("/display-heroes");
+            return null;
         },new HandlebarsTemplateEngine());
-//delete squad one
-        get("squad-delete/:id",(request, response) -> {
+
+        //delete one squad
+     get("squad-delete/:id",(request, response) -> {
             Map<String,Object> model = new HashMap<>();
             int idToUse = Integer.parseInt(request.params(":id"));
-            Squad.getSquadById(idToUse).deleteParicularSquad(idToUse);
-            List<Squad> squadList = Squad.getAllSquads();
-            model.put("squads", squadList);
-            boolean inside = true;
-            model.put("position",inside);
-            List<Hero> list = Hero.getAll();
-            model.put("heroes", list);
-            return new ModelAndView(model,"display-heroes.hbs");
+            Squad.getAllSquads().removeIf(squad -> squad.getId() == idToUse);
+            response.redirect("/display-squads");
+            return  null;
         },new HandlebarsTemplateEngine());
 
 
@@ -120,7 +113,8 @@ public class App {
             int idToUse = Integer.parseInt(request.params("id"));
             Squad squad = Squad.getSquadById(idToUse);
             String squadName = squad.getName();
-
+            boolean inside = true;
+            model.put("position",inside);
             model.put("squad", squad);
           //  boolean inside = true;
             List<Squad> squadList = Squad.getAllSquads();

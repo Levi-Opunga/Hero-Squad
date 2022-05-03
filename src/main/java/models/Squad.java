@@ -41,7 +41,7 @@ public class Squad {
         this.heroesPresentCount = this.heroesPresentCount+1;
     }
 
-
+public static int deleteCount =0;
 
 
 
@@ -70,7 +70,7 @@ public class Squad {
         this.cause = cause;
         this.motto = motto;
         instances.add(this);
-        this.id = instances.size();
+        this.id = instances.size()-1;
         this.percentageFull =0;
         this.heroesPresentCount =0;
 
@@ -121,7 +121,7 @@ public class Squad {
     }
 
     public static Squad getSquadById(int idToUse) {
-        return instances.get(idToUse - 1);
+        return instances.get(idToUse);
     }
 
     public static List<Squad> getAllSquads() {
@@ -132,8 +132,9 @@ public class Squad {
         instances.clear();
     }
 
-    public void deleteParicularSquad(int id) {
-        instances.remove(id - 1);
+    public static void deleteParicularSquad(int id) {
+        instances.remove(id);
+        deleteCount++;
     }
 
 }

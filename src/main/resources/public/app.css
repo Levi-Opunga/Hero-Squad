@@ -22,8 +22,8 @@ form{
 background-image: url("/images/form.jpg");
  background-position: center;
   background-repeat: no-repeat;
- background-color: #39404d; /* Tint color */
-/* Tint color */
+ background-color: #1f0c01;
+      background-blend-mode: multiply;
    background-blend-mode: multiply;
   background-size: cover;
   border-radius: 14px;
@@ -45,11 +45,11 @@ background-image: url("/images/batman1.jpg");
  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-
+background-color: #ff7f4d;
+      background-blend-mode: multiply;
     height:100%
     width:100%
-     background-color: white;
-      background-blend-mode: multiply;
+
 }
 nav{
  background-color:#daf0ea;
@@ -83,12 +83,15 @@ background-blend: multiply;
 }
 
 blockquote.style2 {
-background-color:#b8d4a7;
+background-color:#171a19;
 background-blend: multiply;
   font: 14px/22px normal 'JetBrains Mono', monospace;
   margin:auto;
   padding-left: 15px;
-  border-left: 3px solid #ccc;
+  border-left: 8px solid ;
+   border-right: 8px solid ;
+     border-top: 8px solid black;
+      border-bottom: 8px solid black;
   width:28%;
     text-align: center;
    color:white;
@@ -109,12 +112,16 @@ width: 140px;
 }
 
 blockquote.style3 {
-background-color:#b8d4a7;
+background-color:#171a19;
 background-blend: multiply;
   font: 14px/22px normal 'JetBrains Mono', monospace;
  margin:auto;
   padding-left: 15px;
-  border-left: 3px solid #ccc;
+
+  border-left: 8px solid ;
+    border-right: 8px solid ;
+  border-top: 8px solid black;
+   border-bottom: 8px solid black;
     width:auto;
       display:table;
   text-align: center;

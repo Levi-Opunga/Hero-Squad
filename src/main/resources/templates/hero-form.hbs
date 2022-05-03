@@ -41,7 +41,7 @@
                 {{#each icons}}
                     <div class="form-check">
                         <input class="form-check-input" type="radio" required name="icon-input" id="exampleRadios1"
-                               value="/images/{{this}}" checked>
+                               value="/images/{{this}}" >
                         <label class="form-check-label" for="exampleRadios1">
                             <img class="rounded-circle icons" alt="100x100"
                                  src="/images/{{this}}"
@@ -60,7 +60,7 @@
         <div class="form-row mt-3">
             <div class="col-md-10 offset-1">
                 <label for="bio">Bio</label>
-                <textarea class="form-control form-control-lg " required  rows="5" class="form-group" type="text"
+                <textarea class="form-control form-control-lg bg-secondary" required  rows="5" class="form-group" type="text"
                           name="bio" id="bio" placeholder="Enter hero Bio"></textarea>
             </div>
         </div>
@@ -70,7 +70,7 @@
 
 
         <div class=" pt-4 pb-4">
-            <button type="submit" class="btn btn-light ">Add Hero</button>
+            <button type="submit" class="btn btn-secondary ">Add Hero</button>
         </div>
     </form>
 {{/partial}}
