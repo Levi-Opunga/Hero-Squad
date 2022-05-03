@@ -19,7 +19,7 @@
 
 
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light bg ">
+    <nav class="navbar navbar-expand-lg navbar-light bg ">
         <div class="container-fluid">
             <a class="navbar-brand" href="/">Home</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
@@ -64,7 +64,10 @@
             <div class="col-md-3">
             <div class="list-group list-squads ">
                 <a href="/display-squads" class="list-group-item bg-secondary list-group-item-action ">
-                    Available Squads
+                    All Available Squads
+                </a>
+                <a href="/display-heroes" class="list-group-item bg-secondary list-group-item-action ">
+                    All Available Heroes
                 </a>
                 {{#if squads}}
                     {{#each squads}}
@@ -72,7 +75,13 @@
 
                     {{/each}}
                     <a href="squad/delete" class="list-group-item bg-secondary list-group-item-action">Delete All Squads</a>
+                {{#if heroes}}
+                    <a href="hero/delete" class="list-group-item bg-secondary list-group-item-action">Delete All Heroes</a>
+                {{/if}}
                 {{else}}
+                    {{#if heroes}}
+                        <a href="hero/delete" class="list-group-item bg-secondary list-group-item-action">Delete All Heroes</a>
+                    {{/if}}
                     <a href="#" class="list-group-item bg-secondary list-group-item-action">There are currently no squads</a>
                 {{/if}}
             </div></div>
@@ -91,7 +100,8 @@
     </div></main>
 {{#block "footer"}}
 
-    <footer style="padding-top:30px; padding-bottom :6px;" class="container-fluid  darktext bg-light
+    <footer style="padding-top:30px; padding-bottom :6px;" class="container-fluid  bg darktext
+    <footer style="padding-top:30px; padding-bottom :6px;" class="container-fluid  bg darktext
      white">
     <h6 class="text-center">Contact Me </h6>
     <h5 class="text-center">Phone: +254700099026</h5>

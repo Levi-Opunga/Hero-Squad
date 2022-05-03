@@ -1,44 +1,50 @@
 {{#partial "content"}}
     <form action="/allocate-squad" class="text-center offset-1 pt-5 mt-5 col-md-10" method="post">
-        {{#if squads}}
+    {{#if squads}}
             <div class="form-group pt-5 ">
                 <label for="exampleFormControlSelect1">Squad Selection</label>
-                <select class="form-control form-control-lg" required name="squad-selection" id="exampleFormControlSelect1">
+                <select class="form-control form-control-lg" required name="squad-selection"
+                        id="exampleFormControlSelect1">
 
                     {{#each squads}}
                         {{#unless squadFull}}
-                        <option class="text-uppercase"  value="{{id}}">{{id}} {{name}}</option>
+                            <option class="text-dark text-uppercase" value="{{id}}">{{id}} {{name}}</option>
                         {{/unless}}
                     {{/each}}
                 </select>
             </div>
-
-        {{else}}
-          <a href="/squad-form"> <h4 class="pb-4 mt-5 pt-5">Please add a squad first</h4></a>
-        {{/if}}
 
         {{#if heroes}}
-            <div class="form-group">
+                <div class="form-group">
 
-                <label for="exampleFormControlSelect1">Available Unallocated Heroes</label>
-                <select class="form-control  form-control-lg"  required name="hero-selection" id="exampleFormControlSelect1">
+                    <label for="exampleFormControlSelect1">Available Unallocated Heroes</label>
+                    <select class="form-control text-dark  form-control-lg" required name="hero-selection"
+                            id="exampleFormControlSelect1">
 
-                    {{#each heroes}}
-                        {{#unless allocatedSquad}}
-                        <option value="{{id}}">{{name}}</option>
-                        {{/unless}}
-                    {{/each}}
+                        {{#each heroes}}
+                            {{#unless allocatedSquad}}
+                                <option class="text-dark" value="{{id}}">{{name}}</option>
+                            {{/unless}}
+                        {{/each}}
 
-                </select>
+                    </select>
 
-            </div>
-            <div class="pt-4">
-                <button type="submit" class="btn btn-success">Add Hero to Squad</button>
-            </div>
+                </div>
+
+                <div class="pt-4 pb-4">
+                    <button type="submit" class="btn btn-light">Add Hero to Squad</button>
+                </div>
+
+            </form>
         {{else}}
-           <a href="hero-form"> <h4 class="pt-4">Please add a hero first</h4></a>
+                <a href="hero-form"><h4 class="pt-4">Please add a hero first</h4></a>
         {{/if}}
 
-    </form>
+
+
+    {{else}}
+        <a href="/squad-form"><h4 class="pb-4 mt-5 pt-5">Please add a squad first</h4></a>
+    {{/if}}
+
 {{/partial}}
 {{>layout.hbs}}

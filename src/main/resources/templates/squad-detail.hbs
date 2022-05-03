@@ -1,28 +1,56 @@
 {{#partial "content"}}
-    <div class="text-center offset-1 col-md-10" >
-        {{#if squad}}
-            <h2>{{squad.name}}</h2>
-            <h3>Motto</h3>
-            <p>{{squad.motto}}</p>
-            <h3>Cause</h3>
-            <p>{{squad.cause}}</p>
-            <h4>Squad Capacity:{{squad.maxsize}}</h4>
-        {{/if}}
-        {{#if heroes}}
-            <h4>Heroes in this Squad</h4>
-            {{#each heroes}}
-                <h5>{{name}}</h5>
+    <div class="text-center offset-1 col-md-10">
+    {{#if squad}}
+            <div class="card text-center bg-dark">
+                <div class="card-header h2">
+                    {{squad.name}}
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">{{squad.motto}}</h4>
+                    <p class="card-text">{{squad.cause}}</p>
+                    <p>Heroes present in squad:{{squad.heroesPresentCount}}</p>
 
-            {{/each}}
-        {{else}}
-            <h4>Category has no heroes yet</h4>
-        {{/if}}
+                    {{#if heroes}}
 
+                            <div class="card card-in-card text-center" style="width: 18rem;">
+                                <div class="card-header">
+                                    <h5 class="text-dark">Heroes in this Squad</h5>
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    {{#each heroes}}
+                                    <li class="list-group-item bg text-dark">{{name}}</li>
+                        {{/each}}
+                                </ul>
+                            </div>
 
-        <a href="/squad-form">
-            <button class="btn btn-success">Add More Squads</button>
-        </a>
-    </div>
+                        <br>
+                    {{else}}
+                        <h4>Squad has no heroes yet</h4>
+                    {{/if}}
+                    <div class="progress">
+                        <div class="progress-bar bg-success" role="progressbar" style="width:{{squad.percentageFull}}%;"
+                             aria-valuenow="25"
+                             aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <br>
+                    <p>Percentage full :<span class="text-success"> {{squad.percentageFull}} %</span></p>
+                    <br>
+                    <a href="/squad-delete/{{id}}" class="btn btn-light">Delete</a>
+                </div>
+                <div class="card-footer h4 text-muted">
+                    Squad Capacity:{{squad.maxsize}}
+                </div>
+            </div>
+            <br>
+            <a href="/squad-form">
+                <div class="text-center ">
+                    <blockquote class="style3">
+                        <h3>+Add More Squads</h3>
+                    </blockquote>
+            </a>
+
+        </div>
+    {{/if}}
 {{/partial}}
 
 {{>layout.hbs}}

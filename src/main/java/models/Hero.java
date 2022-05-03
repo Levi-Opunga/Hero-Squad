@@ -7,43 +7,17 @@ public class Hero {
     private static ArrayList<Hero> instances = new ArrayList<>();
     private final int id;
 
-    public boolean isAllocatedSquad() {
-        return allocatedSquad;
-    }
-
-    public void setAllocatedSquad(boolean allocatedSquad) {
-        this.allocatedSquad = allocatedSquad;
-    }
-String icon;
-
-    public String getIcon() {
-        return icon;
-    }
-
-    public void setIcon(String icon) {
-        this.icon = icon;
-    }
-
-    public static String[] icons = {"superhero (12).png"
-            , "superhero (10).png"
-            , "superhero (9).png"
-            , "superhero (8).png"
-            , "superhero (7).png"
-            , "superhero (11).png"
-            , "superhero (6).png"
-            , "superhero (5).png"
-            , "superhero (4).png"
-            , "superhero (3).png"
-            , "superhero (2).png"
-            , "superhero (1).png"
-            , "bat (1).png"
-            , "batman (1).png"
-            , "spiderman.png"
-            , "batman.png"
-            , "superman.png"
-            , "superhero.png",
-            "bat.png"};
+   private String bio;
     private String name;
+
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
+
     private Integer age;
     private String power;
     private String weakness;
@@ -60,14 +34,15 @@ String icon;
         allocatedSquad = true;
     }
 
-    public Hero(String name, Integer age, String power, String weakness,String icon) {
+    public Hero(String name, Integer age, String power, String weakness,String icon,String bio) {
         this.name = name;
         this.age = age;
         this.power = power;
         this.weakness = weakness;
-        instances.add(this);
         this.icon = icon;
+        instances.add(this);
         id = instances.size() - 1;
+        this.bio = bio;
     }
 
     public static List<Hero> getAll() {
@@ -119,11 +94,46 @@ String icon;
         return instances.get(idToUse);
     }
 
-    public void deleteParicularSquad(int id) {
+    public void deleteParicularHero(int id) {
         instances.remove(id);
+    }
+    public boolean isAllocatedSquad() {
+        return allocatedSquad;
     }
 
 
+    public void setAllocatedSquad(boolean allocatedSquad) {
+        this.allocatedSquad = allocatedSquad;
+    }
+    String icon;
+
+    public String getIcon() {
+        return icon;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
+    }
+
+    public static String[] icons = {"superhero (12).png"
+            , "superhero (10).png"
+            , "superhero (9).png"
+            , "superhero (8).png"
+            , "superhero (7).png"
+            , "superhero (11).png"
+            , "superhero (6).png"
+            , "superhero (5).png"
+            , "superhero (4).png"
+            , "superhero (3).png"
+            , "superhero (2).png"
+            , "superhero (1).png"
+            , "bat (1).png"
+            , "batman (1).png"
+            , "spiderman.png"
+            , "batman.png"
+            , "superman.png"
+            , "superhero.png",
+            "bat.png"};
 
 
 }

@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@600&display=swap');
 
+
 *{
 font-family: 'JetBrains Mono', monospace;
-color:white;
+color:#b8d4a7;
 }
+
 
 list-squads{
 width=80%;
@@ -20,7 +22,7 @@ form{
 background-image: url("/images/form.jpg");
  background-position: center;
   background-repeat: no-repeat;
- background-color: rgba(58, 64, 74); /* Tint color */
+ background-color: #39404d; /* Tint color */
 /* Tint color */
    background-blend-mode: multiply;
   background-size: cover;
@@ -35,8 +37,8 @@ width: 60px;
 }
 .navbar-inner {
     background:transparent;
-     background-color: rgba(200,100,0,.5);
-      background-blend-mode: multiply;
+ background-color:#b8d4a7;
+ background-blend-mode: multiply;
 }
 main{
 background-image: url("/images/batman1.jpg");
@@ -49,26 +51,55 @@ background-image: url("/images/batman1.jpg");
      background-color: white;
       background-blend-mode: multiply;
 }
-.bg{
- background-color: rgba(200,100,0,.5);
-  background-blend-mode: multiply;
+nav{
+ background-color:#daf0ea;
+ background-blend-mode: multiply;
   }
 
-footer{
 
+bg{
+ background-color:#daf0ea;
+ background-blend-mode: multiply;
+
+}
+li.bg{
+background-color:#daf0ea;
+ background-blend-mode: multiply;
+}
+
+footer{
+background-color:#b8d4a7;
+background-blend: multiply;
   color:black;
 }
 
+.card-in-card {
+        margin: 0 auto; /* Added */
+        float: none; /* Added */
+        margin-bottom: 10px; /* Added */
+      background-color:#b8d4a7;
+      background-blend: multiply;
+
+}
+
 blockquote.style2 {
+background-color:#b8d4a7;
+background-blend: multiply;
   font: 14px/22px normal 'JetBrains Mono', monospace;
   margin:auto;
   padding-left: 15px;
   border-left: 3px solid #ccc;
-  width:25%;
+  width:28%;
     text-align: center;
    color:white;
  display:table;
 
+}
+
+img.card-image{
+height: 240px;
+width: 240px;
+text-align: text-center;
 }
 
 img.hero-icon{
@@ -78,7 +109,8 @@ width: 140px;
 }
 
 blockquote.style3 {
-
+background-color:#b8d4a7;
+background-blend: multiply;
   font: 14px/22px normal 'JetBrains Mono', monospace;
  margin:auto;
   padding-left: 15px;

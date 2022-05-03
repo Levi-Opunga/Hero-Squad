@@ -57,6 +57,8 @@ class SquadTest {
     Squad squad= setUpSquad();
     assertEquals(1,squad.getId());
     }
+    @Test
+
 
 
     private Squad setUpSquad() {
