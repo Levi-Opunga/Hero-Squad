@@ -27,15 +27,7 @@ public class Hero {
 
     public static int heroSubtractCounter =0;
 
-    public String getSquad() {
-        return squad;
-    }
-
-    public void setSquad(String squad) {
-        this.squad = squad;
-        allocatedSquad = true;
-    }
-
+///////////////////////////////////////////////////////////////////////////////////////
     public Hero(String name, Integer age, String power, String weakness,String icon,String bio) {
         this.name = name;
         this.age = age;
@@ -47,6 +39,16 @@ public class Hero {
         this.bio = bio;
     }
 
+
+    ///////////////////////////////////////////////////////////////////////////
+    public String getSquad() {
+        return squad;
+    }
+
+    public void setSquad(String squad) {
+        this.squad = squad;
+        allocatedSquad = true;
+    }
     public static List<Hero> getAll() {
         return instances;
     }
@@ -108,7 +110,10 @@ public class Hero {
     public void setAllocatedSquad(boolean allocatedSquad) {
         this.allocatedSquad = allocatedSquad;
     }
-    String icon;
+
+
+    ////////////////////Icons
+   private String icon;
 
     public String getIcon() {
         return icon;
@@ -118,6 +123,7 @@ public class Hero {
         this.icon = icon;
     }
 
+    ////////ARRAY LIST TO HELP WITH ICON PATHS
     public static String[] icons = {"superhero (12).png"
             , "superhero (10).png"
             , "superhero (9).png"

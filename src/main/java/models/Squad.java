@@ -17,26 +17,18 @@ public class Squad {
     boolean squadFull = false;
     public static Multimap<String, Hero> squadAllocations = ArrayListMultimap.create();
 
-    private   List<Hero> allocatedHeroes = new ArrayList<>(); //list of all allocated heroes
+    private List<Hero> allocatedHeroes = new ArrayList<>(); //list of all allocated heroes
 
 
     private String cause;
     private int heroesPresentCount;
 
-    public  int getHeroesPresentCount() {
+    public int getHeroesPresentCount() {
         return heroesPresentCount;
     }
 
-    public int setHeroesPresentCount(int heroesPresentCount) {
-        return this.heroesPresentCount = heroesPresentCount;
-    }
 
-    public void setHeroesPresentCount() {
-        this.heroesPresentCount = this.heroesPresentCount+1;
-    }
-
-public static int deleteCount =0;
-
+    public static int deleteCount = 0;
 
 
     private int percentageFull;
@@ -50,12 +42,12 @@ public static int deleteCount =0;
     }
 
 
-    public  List<Hero> getAllocatedHeroes() {
+    public List<Hero> getAllocatedHeroes() {
         return allocatedHeroes;
     }
 
     public void setAllocatedHeroes(Hero hero) {
-         this.allocatedHeroes.add(hero);
+        this.allocatedHeroes.add(hero);
     }
 
     public Squad(String name, String motto, String cause, Integer maxsize) {
@@ -64,17 +56,18 @@ public static int deleteCount =0;
         this.cause = cause;
         this.motto = motto;
         instances.add(this);
-        this.id = instances.size()-1;
-        this.percentageFull =0;
-        this.heroesPresentCount =0;
+        this.id = instances.size() - 1;
+        this.percentageFull = 0;
+        this.heroesPresentCount = 0;
 
     }
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //methods
     public boolean isSquadFull() {
         return squadFull;
     }
+
     public void setSquadFull(boolean squadFull) {
         this.squadFull = squadFull;
     }
@@ -139,5 +132,13 @@ public static int deleteCount =0;
         instances.remove(id);
         deleteCount++;
     }
+    public int setHeroesPresentCount(int heroesPresentCount) {
+        return this.heroesPresentCount = heroesPresentCount;
+    }
+
+    public void setHeroesPresentCount() {
+        this.heroesPresentCount = this.heroesPresentCount + 1;
+    }
+
 
 }
