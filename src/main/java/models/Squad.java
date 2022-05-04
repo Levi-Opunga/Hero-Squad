@@ -27,7 +27,42 @@ public class Squad {
     }
 
     private String cause;
+    private int heroesPresentCount;
+
+    public  int getHeroesPresentCount() {
+        return heroesPresentCount;
+    }
+
+    public int setHeroesPresentCount(int heroesPresentCount) {
+        return this.heroesPresentCount = heroesPresentCount;
+    }
+
+    public void setHeroesPresentCount() {
+        this.heroesPresentCount = this.heroesPresentCount+1;
+    }
+
+public static int deleteCount =0;
+
+
+
+    private int percentageFull;
+
+    public int getPercentageFull() {
+        return percentageFull;
+    }
+
+    public void setPercentageFull(int percentageFull) {
+        this.percentageFull = percentageFull;
+    }
+
     public static Multimap<String, Hero> squadAllocations = ArrayListMultimap.create();
+
+    public  List<Hero> allocatedHeroes = new ArrayList<>();
+
+    public  List<Hero> getAllocatedHeroes() {
+        return allocatedHeroes;
+    }
+
 
     public Squad(String name, String motto, String cause, Integer maxsize) {
         this.name = name;
@@ -35,7 +70,9 @@ public class Squad {
         this.cause = cause;
         this.motto = motto;
         instances.add(this);
-        this.id = instances.size();
+        this.id = instances.size()-1;
+        this.percentageFull =0;
+        this.heroesPresentCount =0;
 
     }
 
@@ -84,7 +121,7 @@ public class Squad {
     }
 
     public static Squad getSquadById(int idToUse) {
-        return instances.get(idToUse - 1);
+        return instances.get(idToUse);
     }
 
     public static List<Squad> getAllSquads() {
@@ -94,8 +131,10 @@ public class Squad {
     public static void deleteAllSquads() {
         instances.clear();
     }
-    public void deleteParicularSquad(int id){
-        instances.remove(id-1);
+
+    public static void deleteParicularSquad(int id) {
+        instances.remove(id);
+        deleteCount++;
     }
 
 }

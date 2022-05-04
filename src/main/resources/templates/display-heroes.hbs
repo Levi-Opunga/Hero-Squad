@@ -1,22 +1,41 @@
 {{#partial "content"}}
+    <h1 class="">Available Heroes</h1>
     <div class="text-center offset-1 col-md-10">
         {{#if heroes}}
-            <h2 class="display-2">Available Heroes</h2>
-            {{#each heroes}}
-                <img src="{{icon}}" alt="hero icon" class="hero-icon">
 
-                <h2>Hero Name :{{name}}</h2>
-                <p>Hero's Age :{{age}}</p>
-                <p>Hero's Power:{{power}}</p>
-                <p>Hero's Weakness:{{weakness}}</p>
-                {{#if allocatedSquad}}
-                    <h3>Hero's Squad: {{squad}}</h3>
-                {{/if}}
+
+            {{#each heroes}}
+                    <div class="container mb-3">
+                <div class="text-dark">
+                    <div class="card rounded bg-secondary" style="width:100%;">
+                        <img class="card-img-top mx-auto d-block card-image" src="{{icon}}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title text-dark">{{name}}</h5>
+                            <p class="card-text text-dark">{{bio}}</p>
+                        </div>
+                        <ul class="list-group  bg-secondary list-group-flush text-dark">
+                            <li class="list-group-item  bg-secondary text-dark">Hero's Age :{{age}}</li>
+                            <li class="list-group-item  bg-secondary text-dark">Hero's Power:{{power}}</li>
+                            <li class="list-group-item bg-secondary text-dark">Hero's Weakness:{{weakness}}</li>
+                        </ul>
+                        <div class="card-body  bg-secondary">
+                            <a href="/squad-form">
+                                <button class="btn btn-light">Add More Heroes</button>
+                            </a>
+                            <a href="/hero-delete/{{id}}">
+                                <button class="btn btn-danger">Delete this Heroes</button>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
             {{/each}}
-            <a href="/squad-form">
-                <button class="btn btn-primary">Add More Heroes</button>
-            </a>
+            </div>
         {{/if}}
+
         <div>
 
 {{/partial}}

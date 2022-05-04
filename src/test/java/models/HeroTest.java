@@ -73,15 +73,15 @@ class HeroTest {
     @Test
     void createIdTest() {
         Hero hero = setUpHero();
-        Hero two = new Hero("Steve", 45, "turbo", "sleeping","/images/batman.png");
-        Hero three = new Hero("Steve", 45, "turbo", "sleeping","/images/batman.png");
-        Hero four = new Hero("Steve", 45, "turbo", "sleeping","/images/batman.png");
+        Hero two = new Hero("Steve", 45, "turbo", "sleeping","/images/batman.png","lorem-ipsum");
+        Hero three = new Hero("Steve", 45, "turbo", "sleeping","/images/batman.png","lorem-ipsum");
+        Hero four = new Hero("Steve", 45, "turbo", "sleeping","/images/batman.png","lorem-ipsum");
         assertEquals(3, four.getId());
 
     }
 
     private Hero setUpHero() {
         Hero.clearAllHeroes();
-        return new Hero("levi", 20, "super speed", "slippery floor","/images/batman.png");
+        return new Hero("levi", 20, "super speed", "slippery floor","/images/batman.png","lorem-ipsum");
     }
 }

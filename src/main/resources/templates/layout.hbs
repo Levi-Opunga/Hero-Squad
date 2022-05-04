@@ -3,12 +3,15 @@
     <!DOCTYPE html>
     <html>
     <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{{#block "title"}}Heroes App{{/block}}
         </title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
               integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
               crossorigin="anonymous">
-<!--Adding style sheet in relation to root folder in order for /squads/:id to be styled -->
+        <!--Adding style sheet in relation to root folder in order for /squads/:id to be styled -->
         {{#if position}}
             <link rel="stylesheet" href="../app.css">
         {{else}}
@@ -19,7 +22,7 @@
 
 
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light bg ">
+    <nav class="navbar navbar-expand-lg navbar-light bg ">
         <div class="container-fluid">
             <a class="navbar-brand" href="/">Home</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
@@ -59,48 +62,65 @@
 
 {{/block}}
 <main class="pt-5 pb-5">
-    <div class="container-fluid pt-5">
+    <div class="container pt-5">
         <div class="row mb-0">
-            <div class="col-md-3">
-            <div class="list-group list-squads ">
-                <a href="/display-squads" class="list-group-item bg-secondary list-group-item-action ">
-                    Available Squads
-                </a>
-                {{#if squads}}
-                    {{#each squads}}
-                        <a href="squad/{{id}}" class="list-group-item bg-secondary list-group-item-action">{{name}}</a>
 
-                    {{/each}}
-                    <a href="squad/delete" class="list-group-item bg-secondary list-group-item-action">Delete All Squads</a>
-                {{else}}
-                    <a href="#" class="list-group-item bg-secondary list-group-item-action">There are currently no squads</a>
-                {{/if}}
-            </div></div>
-            <div class="d-flex" style="height: 100%;">
-                <div class="vr"></div>
-            </div>
-            <div class="text-center col-md-9">
-            <!-- begin inner template-->
 
-            {{#block "content"}}
-            {{/block}}
+            <div class="text-center col-sm-12 col-md-9">
+                <!-- begin inner template-->
+
+                {{#block "content"}}
+                {{/block}}
             </div>
+            <div class="col-md-3 pt-4 col-sm-12">
+                <div class="list-group list-squads ">
+                    <a href="/display-squads" class="list-group-item bg-secondary list-group-item-action ">
+                        All Available Squads
+                    </a>
+                    <a href="/display-heroes" class="list-group-item bg-secondary list-group-item-action ">
+                        All Available Heroes
+                    </a>
+                    {{#if squads}}
+                        {{#each squads}}
+                            <a href="squad/{{id}}"
+                               class="list-group-item bg-secondary list-group-item-action">{{name}}</a>
+
+                        {{/each}}
+                        <a href="squad/delete" class="list-group-item bg-secondary list-group-item-action">Delete All
+                            Squads</a>
+                        {{#if heroes}}
+                            <a href="hero/delete" class="list-group-item bg-secondary list-group-item-action">Delete All
+                                Heroes</a>
+                        {{/if}}
+                    {{else}}
+                        {{#if heroes}}
+                            <a href="hero/delete" class="list-group-item bg-secondary list-group-item-action">Delete All
+                                Heroes</a>
+                        {{/if}}
+                        <a href="#" class="list-group-item bg-secondary list-group-item-action">There are currently no
+                            squads</a>
+                    {{/if}}
+                </div>
+            </div>
+
+
         </div>
 
 
-    </div></main>
+    </div>
+</main>
 {{#block "footer"}}
 
-    <footer style="padding-top:30px; padding-bottom :6px;" class="container-fluid  darktext bg-light
+    <footer style="padding-top:30px; padding-bottom :6px;" class="container-fluid  dark-text bd-light
      white">
-    <h6 class="text-center">Contact Me </h6>
-    <h5 class="text-center">Phone: +254700099026</h5>
-    <h5 class="text-center">Email: leviopunga@gmail.com</h5>
+        <h6 class="text-center">Contact Me </h6>
+        <h5 class="text-center">Phone: +254700099026</h5>
+        <h5 class="text-center">Email: leviopunga@gmail.com</h5>
 
-    <p class=" text-center ">
-        <font size="3">Levi Inc 2021</font>
-        <font size="-2">(c)</font>
-    </p>
+        <p class=" text-center ">
+            <font size="3">Levi Inc 2021</font>
+            <font size="-2">(c)</font>
+        </p>
     </footer>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
             integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"

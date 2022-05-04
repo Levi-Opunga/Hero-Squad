@@ -7,6 +7,8 @@
 *.o
 *.so
 *.bat
+*.jar
+*.tgz
 
 # Packages #
 ############
@@ -44,6 +46,11 @@ gradle
 gradlew.bat
 gradlew
 settings.gradle
+target/*
+target/
+target/heroku/build.tgz
+target/heroku/*
+
 
 # IntelliJ #
 ############
