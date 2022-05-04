@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@600&display=swap');
+
+
+*{
+font-family: 'JetBrains Mono', monospace;
+color:#daf0ea;
+}
+
+
+list-squads{
+width=80%;
+
+}
+
+input[type="text"]{
+background-color: grey;
+}
+input[type="number"]{
+background-color: grey;
+}
+form{
+background-image: url("/images/form.jpg");
+ background-position: center;
+  background-repeat: no-repeat;
+ background-color: #1f0c01;
+      background-blend-mode: multiply;
+   background-blend-mode: multiply;
+  background-size: cover;
+  border-radius: 14px;
+  height: auto;
+
+}
+.icons{
+height: 60px;
+width: 60px;
+width: 60px;
+}
+.navbar-inner {
+    background:transparent;
+ background-color:#b8d4a7;
+ background-blend-mode: multiply;
+}
+main{
+background-image: url("/images/batman1.jpg");
+ background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+background-color: #ff7f4d;
+      background-blend-mode: multiply;
+    height:100%
+    width:100%
+
+}
+
+
+
+bg{
+ background-color:#daf0ea;
+ background-blend-mode: multiply;
+}
+select.bg{
+ background-color:grey;
+ background-blend-mode: multiply;
+}
+
+
+footer{
+
+  color:black;
+}
+
+.card-in-card {
+        margin: 0 auto; /* Added */
+        float: none; /* Added */
+        margin-bottom: 10px; /* Added */
+      background-color::#daf0ea;
+      background-blend: multiply;
+
+}
+
+blockquote.style2 {
+background-color:#171a19;
+background-blend: multiply;
+  font: 14px/22px normal 'JetBrains Mono', monospace;
+  margin:auto;
+  padding-left: 15px;
+  border-left: 8px solid ;
+   border-right: 8px solid ;
+     border-top: 8px solid black;
+      border-bottom: 8px solid black;
+  width:28%;
+    text-align: center;
+   color:white;
+ display:table;
+
+}
+
+img.card-image{
+height: 240px;
+width: 240px;
+text-align: text-center;
+}
+
+img.hero-icon{
+height: 140px;
+width: 140px;
+
+}
+
+blockquote.style3 {
+background-color:#171a19;
+background-blend: multiply;
+  font: 14px/22px normal 'JetBrains Mono', monospace;
+ margin:auto;
+  padding-left: 15px;
+
+  border-left: 8px solid ;
+    border-right: 8px solid ;
+  border-top: 8px solid black;
+   border-bottom: 8px solid black;
+    width:auto;
+      display:table;
+  text-align: center;
+  color:white;
+}

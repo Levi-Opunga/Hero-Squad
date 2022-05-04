@@ -1,0 +1,77 @@
+{{#partial "content"}}
+    <div class="text-center pt-5 col-md-9">
+        <a href="/squad-form mt-5">
+            <div class="text-center h2">
+                <blockquote class="style3 ">Add More Squads</blockquote>
+            </div>
+        </a>
+    {{#if squads}}
+            <h3 class="">Available Squads</h3>
+        {{#each squads}}
+                <div>
+                    <div class="card text-center bg-dark">
+                        <div class="card-header h2">
+                            {{name}}
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">{{motto}}</h4>
+                            <p class="card-text">{{cause}}</p>
+                            <p>Heroes present in squad:{{heroesPresentCount}}</p>
+
+                            {{#if allocatedHeroes}}
+
+                                <div class="card card-in-card text-center" style="width: 18rem;">
+                                    <div class="card-header">
+                                        <h5 class="text-dark">Heroes in this Squad</h5>
+                                    </div>
+                                    <ul class="list-group list-group-flush">
+                                        {{#each allocatedHeroes}}
+                                            <li class="list-group-item text-dark ">{{name}}</li>
+                                        {{/each}}
+                                    </ul>
+                                </div>
+
+                                <br>
+                                {{each}}
+                            {{else}}<h4>Squad has no heroes yet</h4>
+
+                            {{/if}}
+
+                            <div class="progress">
+                                <div class="progress-bar bg-success" role="progressbar"
+                                     style="width:{{percentageFull}}%;"
+                                     aria-valuenow="25"
+                                     aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <br>
+                            <p>Percentage full :<span class="text-success"> {{percentageFull}} %</span></p>
+                            <br>
+                            <a href="/squad-delete/{{id}}" class="btn btn-light">Delete</a>
+                        </div>
+                        <div class="card-footer h4 text-muted">
+                            Squad Capacity:{{maxsize}}
+                        </div>
+                    </div>
+                    <br>
+                    <a href="/squad-form">
+                        <div class="text-center ">
+                            <blockquote class="style3">
+                                <h3>+Add More Squads</h3>
+                            </blockquote>
+                    </a>
+
+                </div>
+            </div>
+        {{/each}}
+    {{else}}
+        <h1 class="pt-5 mt-t pb-5 mb-5">
+            THERE CURRENTLY NO SQUADS PLEASE ADD
+        </h1>
+    {{/if}}
+
+
+    </div>
+
+
+{{/partial}}
+{{>layout.hbs}}

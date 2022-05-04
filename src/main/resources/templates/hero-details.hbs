@@ -1,0 +1,20 @@
+{{#partial "content"}}
+    <div class="text-center col-md-10">
+    {{#if Hero}}
+            <h2 class="display-2">{{.name}}</h2>
+
+            <h3>Motto</h3>
+            <p>{{squad.motto}}</p>
+            <h3>Cause</h3>
+            <p>{{squad.cause}}</p>
+
+            <h4>Squad Capacity:{{squad.maxsize}}</h4>
+        </div>
+        <a href="/squad-form">
+            <button class="btn btn-success">Add More Squads</button>
+        </a>
+    {{/if}}
+
+
+{{/partial}}
+{{>layout.hbs}}

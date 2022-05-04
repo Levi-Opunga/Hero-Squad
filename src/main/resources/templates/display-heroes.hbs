@@ -1,0 +1,67 @@
+{{#partial "content"}}
+    <div class="text-center col-md-9">
+    <div class="text-center col-md-12">
+        <h1 class="">Available Heroes</h1>
+
+        {{#if heroes}}
+
+
+        {{#each heroes}}
+                <div class="rounded mb-3">
+                    <div class="text-dark">
+                        <div class="card rounded bg-secondary" style="width:100%;">
+                            <img class="card-img-top mx-auto d-block card-image" src="{{icon}}" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title text-dark">{{name}}</h5>
+                                <p class="card-text text-dark">{{bio}}</p>
+                            </div>
+                            <ul class="list-group  bg-secondary list-group-flush text-dark">
+                                <li class="list-group-item  bg-secondary text-dark">Hero's Age :{{age}}</li>
+                                <li class="list-group-item  bg-secondary text-dark">Hero's Power:{{power}}</li>
+                                <li class="list-group-item bg-secondary text-dark">Hero's Weakness:{{weakness}}</li>
+                                {{#if  allocatedSquad}}
+                                    <li class="list-group-item bg-secondary text-dark">Hero's Squad :{{squad}}</li>
+                                {{else}}
+                                    <li class="list-group-item bg-secondary text-dark">Not Allocated to a Squad</li>
+
+                                {{/if}}
+                            </ul>
+                            <div class="card-body  bg-secondary">
+                                <a href="/squad-form">
+                                    <button class="btn btn-light">Add More Heroes</button>
+                                </a>
+                                <a href="/hero-delete/{{id}}">
+                                    <button class="btn btn-danger">Delete this Heroes</button>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+        {{/each}}
+        </div>
+
+    {{else}}
+
+        <h1>Please add a hero using the add hero button</h1>
+
+        <br>
+        <br>
+        <a href="/hero-form">
+            <div class="text-center  ">
+                <blockquote class="style2">
+                    <h3>+Add Hero</h3>
+
+                </blockquote>
+            </div>
+        </a>
+
+
+    {{/if}}
+
+    </div>
+
+{{/partial}}
+{{>layout.hbs}}

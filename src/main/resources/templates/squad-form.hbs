@@ -1,37 +1,39 @@
 {{#partial "content"}}
-
-
-    <form>
+    <form action="/success-squad" class="col-md-10" method="post">
         <div class="text-center container pt-4">
             <div class="form-row">
                 <div class="col">
                     <label for="squad-name">Squad Name</label>
-                    <input class="form-control form-control-lg" class="form-group" name="squad-name" id="squad-name"
+                    <input class="form-control form-control-lg" required  class="form-group" name="squad-name" id="squad-name"
                            type="text" placeholder="Enter the squad name">
                 </div>
 
 
                 <div class="col">
-                    <label for="max-size">Squad Max-Size</label>
-                    <input class="form-control form-control-lg" class="form-group" name="max-size" id="max-size"
-                           type="number" placeholder="Enter the squad size  ">
+                    <label for="maxsize">Squad Max-Size</label>
+                    <input class="form-control form-control-lg" required  class="form-group" name="maxsize" id="maxsize"
+                           type="number" placeholder="Enter the squad maximum size  ">
                 </div>
 
-
             </div>
+            <div class="col">
+                <label for="squad-motto">Squad Motto</label>
+                <input class="form-control form-control-lg" required class="form-group" name="squad-motto" id="squad-motto" type="text"
+                       placeholder="Enter the squad Motto">
+            </div>
+
+
             <div class="form-row mt-3">
                 <div class="col-md-10 offset-1">
-                    <label for="weakness">Weakness</label>
-                    <textarea class="form-control form-control-lg " rows="5" class="form-group" type="text"
-                              name="weakness" id="weakness" placeholder="Enter hero Weakness"></textarea>
+                    <label for="cause">Cause</label>
+                    <textarea class="form-control bg-secondary form-control-lg " required  rows="5" class="form-group" type="text"
+                              name="squad-cause" id="squad-cause" placeholder="Enter hero Cause"></textarea>
                 </div>
             </div>
-            <div class=" pt-4">
-
-                <button type="submit" class="btn btn-primary ">Add Hero</button>
+            <div class="pt-4 pb-4">
+                <button type="submit" class="btn btn-light">Add Squad</button>
             </div>
         </div>
-
 
 
     </form>
