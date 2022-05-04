@@ -1,6 +1,6 @@
 # Hero-Squad
 This is a spark application making use of Java objects and static variables to achieve functionality in for the given session. It allows a user to create a hero object or squad object. The app also allows for allocation of heroes to a give squad.
-
+[site image](/src/main/resources/public/images/Heroes%20App.png)
 ## Prerequisites
 - Knowledge of On Git CLI
   -Java 11
