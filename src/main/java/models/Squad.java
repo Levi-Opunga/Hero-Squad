@@ -10,21 +10,15 @@ import java.util.Map;
 public class Squad {
     private int id;
     private static List<Squad> instances = new ArrayList<>();
-
     private String name;
     private String motto;
     private Integer maxsize;
 
-
     boolean squadFull = false;
+    public static Multimap<String, Hero> squadAllocations = ArrayListMultimap.create();
 
-    public boolean isSquadFull() {
-        return squadFull;
-    }
+    private   List<Hero> allocatedHeroes = new ArrayList<>(); //list of all allocated heroes
 
-    public void setSquadFull(boolean squadFull) {
-        this.squadFull = squadFull;
-    }
 
     private String cause;
     private int heroesPresentCount;
@@ -55,14 +49,14 @@ public static int deleteCount =0;
         this.percentageFull = percentageFull;
     }
 
-    public static Multimap<String, Hero> squadAllocations = ArrayListMultimap.create();
-
-    public  List<Hero> allocatedHeroes = new ArrayList<>();
 
     public  List<Hero> getAllocatedHeroes() {
         return allocatedHeroes;
     }
 
+    public void setAllocatedHeroes(Hero hero) {
+         this.allocatedHeroes.add(hero);
+    }
 
     public Squad(String name, String motto, String cause, Integer maxsize) {
         this.name = name;
@@ -74,6 +68,15 @@ public static int deleteCount =0;
         this.percentageFull =0;
         this.heroesPresentCount =0;
 
+    }
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //methods
+    public boolean isSquadFull() {
+        return squadFull;
+    }
+    public void setSquadFull(boolean squadFull) {
+        this.squadFull = squadFull;
     }
 
     public String getName() {

@@ -57,7 +57,10 @@ background-color: #ff7f4d;
 bg{
  background-color:#daf0ea;
  background-blend-mode: multiply;
-
+}
+select.bg{
+ background-color:grey;
+ background-blend-mode: multiply;
 }
 
 

@@ -47,7 +47,7 @@ gradlew.bat
 gradlew
 settings.gradle
 target/*
-target/
+target/gi
 target/heroku/build.tgz
 target/heroku/*
 
